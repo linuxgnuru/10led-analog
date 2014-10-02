@@ -32,14 +32,6 @@ int main(int argc, char **argv)
 	int new_val;
 	int i, j;
 
-	// try to connect to display
-	/*
-	if (wiringPiSetup() < 0)
-	{
-	    fprintf(stderr, "Unable to open serial device: %s\n", strerror(errno));
-	    return 1;
-	}
-	*/
 	wiringPiSetupGpio();
 	pinMode(gpioPin0, OUTPUT); // GPIO 0
 	pinMode(gpioPin1, OUTPUT); // GPIO 1
@@ -105,10 +97,6 @@ int main(int argc, char **argv)
 			}
 			usleep(delay);
 		}
-		/*
-		lcdPosition(lcdFD, 0, 1);
-		lcdPrintf(lcdFD, "Value: %d", new_val);
-		*/
 	}
 	close(fd);
 	return(0);
